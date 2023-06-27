@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 4002;
 const amqp = require("amqplib");
 var channel, connection;
 
-
 connectQueue() // call connectQueue function
 
 app.listen(PORT, () => console.log("Server running at port " + PORT));
@@ -21,9 +20,9 @@ async function connectQueue() {
         channel = await connection.createChannel()
         
         // connect to 'test-queue', create one if doesnot exist already
-        await channel.assertQueue("cms-logs")
+        await channel.assertQueue("test1")
         
-        channel.consume("cms-logs", data => {
+        channel.consume("test1", data => {
             console.log(JSON.parse(data.content, true))
             channel.ack(data)
         })

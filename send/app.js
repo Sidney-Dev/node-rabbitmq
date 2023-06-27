@@ -33,7 +33,7 @@ async function connectQueue() {
         connection = await amqp.connect(process.env.RABBITMQ_URL);
         channel    = await connection.createChannel()
         
-        const queue = await channel.assertQueue("cms-logs")
+        const queue = await channel.assertQueue("test1")
         console.log(queue)
         
     } catch (error) {
@@ -42,7 +42,7 @@ async function connectQueue() {
 }
 
 async function sendData (data) {
-    await channel.sendToQueue("test-queue", Buffer.from(JSON.stringify(data)));
+    await channel.sendToQueue("test1", Buffer.from(JSON.stringify(data)));
     await channel.close();
     await connection.close(); 
 }
