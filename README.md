@@ -1,5 +1,4 @@
-# node-rabbitmq
-Node.js - Express integration with RabbitMQ
+# Node.js - Express integration with RabbitMQ
 
 Each folder comprises of a node application, where one is to send, and another to receive data via RabbitMQ.
 
