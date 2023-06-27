@@ -1,7 +1,7 @@
 const express = require("express");
 const amqp = require("amqplib");
 const dotenv = require('dotenv').config();
-const RabbitMQ = require('./helper')
+const RabbitMQ = require('./rabbitmq')
 
 const app = express();
 
