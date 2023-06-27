@@ -8,9 +8,9 @@ module.exports = async function connectQueue() {
         channel = await connection.createChannel()
         
         // connect to 'test-queue', create one if doesnot exist already
-        await channel.assertQueue("test1")
+        await channel.assertQueue(process.env.RABBITMQ_NAME)
         
-        channel.consume("test1", data => {
+        channel.consume(process.env.RABBITMQ_NAME, data => {
             console.log(JSON.parse(data.content, true))
             channel.ack(data)
         })
